@@ -1,5 +1,9 @@
 export default function Banner() {
     return (
-        <div>BANNER</div>
+        <div className="hero-banner-container">
+            <div>
+                
+            </div>
+        </div>
     )
 }
