@@ -1,5 +1,5 @@
 import React from 'react'
-import { Banner, Footer } from '../components'
+import { Banner, FooterBanner } from '../components'
 import Product from '../components/Product';
 import { client } from '../lib/client';
 
@@ -13,7 +13,7 @@ export default  function index ({products, bannerData}) {
         <p>There are may variations passages</p>
       </div>
       <div className='products-container'>{products?.map(product => <Product key={product._id} product={product} />)}</div>
-      <Footer />
+      <FooterBanner footerBanner={bannerData && bannerData[0]} />
     </>
   )
 }
