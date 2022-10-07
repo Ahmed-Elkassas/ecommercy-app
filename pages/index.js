@@ -1,7 +1,6 @@
-import React from 'react'
-import { Banner, FooterBanner } from '../components'
-import Product from '../components/Product';
-import { client } from '../lib/client';
+import { Banner, FooterBanner } from 'components'
+import Product from 'components/Product';
+import { client } from 'lib/client';
 
 
 export default  function index ({products, bannerData}) {

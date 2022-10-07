@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { urlFor } from "../lib/client";
+import { urlFor } from "lib/client";
 
 export default function Product({product: {name, slug, image, price}}) {
     return (

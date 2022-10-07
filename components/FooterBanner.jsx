@@ -1,5 +1,5 @@
 import React from 'react'
-import { urlFor } from '../lib/client'
+import { urlFor } from 'lib/client'
 
 const FooterBanner = ({footerBanner: {smallText, buttonText, desc, midText, largeText1, largeText2, discount, saleTime, image}}) => {
   return (
