@@ -1,4 +1,5 @@
-import { useState } from "react";
+import {  useState } from "react";
+import { useCartContext } from "context/StateContext";
 import { client, urlFor } from "lib/client";
 import Product from "components/Product";
 
@@ -11,15 +12,18 @@ import {
 
 // styles
 import styles from "styles/productDetails.module.css";
-import { Fragment } from "react";
+import { useStateContext } from "context/StateContext";
 
 export default function ProductDetails({ product, products }) {
-  const [index, setIndex] = useState(0);
 
   const { image, name, price, details } = product;
+    
+    const [index, setIndex] = useState(0);
+
+    const { qty, incQty, decQty, onAddToCart } = useStateContext()
 
   return (
-    <Fragment>
+    <div>
       <div className={styles["product-detail-container"]}>
         <div>
           <div>
@@ -62,17 +66,17 @@ export default function ProductDetails({ product, products }) {
             <div className={styles.quantity}>
               <h3>Quantity:</h3>
               <div className={styles["quantity-desc"]}>
-                <span className={styles.minus}>
+                <span className={styles.minus} onClick={decQty}>
                   <AiOutlineMinus />
                 </span>
-                <span className={styles.num}>1</span>
-                <span className={styles.plus}>
+                <span className={styles.num}>{qty}</span>
+                <span className={styles.plus} onClick={incQty}>
                   <AiOutlinePlus />
                 </span>
               </div>
             </div>
             <div className={styles.buttons}>
-              <button className={styles["add-to-cart"]}>Add to cart</button>
+              <button className={styles["add-to-cart"]} onClick={() => onAddToCart(product, qty)}>Add to cart</button>
               <button className={styles["buy-now"]}>Buy now</button>
             </div>
           </div>
@@ -91,7 +95,7 @@ export default function ProductDetails({ product, products }) {
           </div>
         </div>
       </div>
-    </Fragment>
+    </div>
   );
 }
 
