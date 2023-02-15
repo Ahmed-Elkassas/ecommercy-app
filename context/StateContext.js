@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useEffect } from "react";
+import React, { createContext, useContext, useState } from "react";
 import { toast } from "react-hot-toast";
 
 const Context = createContext();
@@ -76,6 +76,15 @@ export const StateContext = ({ children }) => {
         ]);
         setTotalPrice((prevTotalPrice) => prevTotalPrice - foundProduct.price);
         setTotalQuantities((prevTotalQuantities) => prevTotalQuantities - 1);
+      } else {
+        setTotalPrice(
+          (prevTotalPrice) =>
+            prevTotalPrice - foundProduct.price * foundProduct.quantity
+        );
+        setTotalQuantities(
+          (prevTotalQuantities) => prevTotalQuantities - foundProduct.quantity
+        );
+        setCartItems(newCartItems);
       }
     }
   };
