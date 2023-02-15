@@ -252,6 +252,29 @@ padding: 30px 65px;
 
 }
 
+.quantity-desc {
+  border: 1px solid gray;
+  padding: 6px;
+}
+.quantity-desc span {
+  font-size: 19px;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+.quantity-desc .minus {
+  border-right: 1px solid gray;
+  color: #f02d34;
+}
+.quantity-desc .num {
+  border-right: 1px solid gray;
+  font-size: 20px;
+  cursor:default;
+}
+.quantity-desc .plus {
+  color: rgb(49, 168, 49);
+}
+/* -------------------- */
+
 .btn-container{
   width: 400px;
   margin: auto;

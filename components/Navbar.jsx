@@ -9,7 +9,7 @@ import styles from 'styles/navbar.module.css'
 
 const Navbar = () => {
 
-const {totalQuantity, showCart, setShowCart} = useStateContext()
+const {totalQuantities, showCart, setShowCart} = useStateContext()
 
   return (
     <div className={styles['navbar-container']}>
@@ -18,7 +18,7 @@ const {totalQuantity, showCart, setShowCart} = useStateContext()
         </p>
         <button type='button' className={styles["cart-icon"]} onClick={() => setShowCart(true)}>
             <AiOutlineShoppingCart />
-            <span className={styles["cart-item-qty"]}>{totalQuantity}</span>
+            <span className={styles["cart-item-qty"]}>{totalQuantities}</span>
         </button>
         {showCart && <Cart />}
     </div>
