@@ -1,5 +1,4 @@
 import {  useState } from "react";
-import { useCartContext } from "context/StateContext";
 import { client, urlFor } from "lib/client";
 import Product from "components/Product";
 

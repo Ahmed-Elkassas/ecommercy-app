@@ -6,12 +6,17 @@ import { AiOutlineMinus, AiOutlinePlus, AiOutlineLeft, AiOutlineShopping } from 
 import { TiDeleteOutline } from 'react-icons/ti';
 
 import { useStateContext } from 'context/StateContext';
+import { toast } from "react-hot-toast";
 
 const Cart = () => {
 
     const cartRef =  useRef();
 
-    const { totalQuantities, setShowCart, cartItems, toggleCartItemQuanitity, onRemove } = useStateContext()
+    const { totalQuantities, setShowCart, cartItems, toggleCartItemQuanitity, onRemove, totalPrice } = useStateContext()
+
+    const handleCheckout = () => {
+      toast.success('buy with Stripe')
+    }
 
   return (
     <div className='cart-wrapper' ref={cartRef}>
@@ -69,6 +74,19 @@ const Cart = () => {
             </div>
           ))}
             </div>
+            {cartItems.length >= 1 && (
+          <div className="cart-bottom">
+            <div className="total">
+              <h3>Subtotal:</h3>
+              <h3>${totalPrice}</h3>
+            </div>
+            <div className="btn-container">
+              <button type="button" className="btn" onClick={handleCheckout}>
+                Pay with Stripe
+              </button>
+            </div>
+          </div>
+        )}
         </div>
     </div>
   )
