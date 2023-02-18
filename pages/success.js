@@ -1,9 +1,21 @@
 import Link from "next/link";
+import { useEffect } from "react";
 
 import { BsBagCheckFill } from "react-icons/bs";
 
+import { useStateContext } from "context/StateContext";
+import { runConfetti } from "lib/uitls";
+
 function Success() {
 
+    const { setCartItems, setTotalPrice, setTotalQuantities } = useStateContext();
+    useEffect(() => {
+        localStorage.clear();
+        setCartItems([]);
+        setTotalPrice(0);
+        setTotalQuantities(0);
+        runConfetti();
+    }, [])
 
   return (
     <div className="success-Wrapper">
