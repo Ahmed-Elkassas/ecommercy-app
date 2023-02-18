@@ -19,7 +19,13 @@ export default function ProductDetails({ product, products }) {
     
     const [index, setIndex] = useState(0);
 
-    const { qty, incQty, decQty, onAdd } = useStateContext()
+    const { qty, incQty, decQty, onAdd, setShowCart } = useStateContext()
+
+    const handleBuyNow = () => {
+      onAdd(product, qty);
+  
+      setShowCart(true);
+    }
 
   return (
     <div>
@@ -76,7 +82,7 @@ export default function ProductDetails({ product, products }) {
             </div>
             <div className={styles.buttons}>
               <button className={styles["add-to-cart"]} onClick={() => onAdd(product, qty)}>Add to cart</button>
-              <button className={styles["buy-now"]}>Buy now</button>
+              <button className={styles["buy-now"]} onClick={handleBuyNow}>Buy now</button>
             </div>
           </div>
         </div>
